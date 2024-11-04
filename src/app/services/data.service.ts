@@ -38,10 +38,10 @@ export class DataService {
   }
 
   // Método para eliminar un evento
-  eliminarEvento(nombreEvento: string) {
-    let eventos = this.obtenerEventos(); // Obtenemos los eventos actuales
-    eventos = eventos.filter(evento => evento.nombre !== nombreEvento);
-    localStorage.setItem(this.eventosKey, JSON.stringify(eventos)); // Actualiza el LocalStorage
+  eliminarEventoPorId(id: number) {
+    let eventos = this.obtenerEventos();
+    eventos = eventos.filter(evento => evento.id !== id);
+    localStorage.setItem(this.eventosKey, JSON.stringify(eventos));
   }
 
   // Método para guardar un nuevo participante

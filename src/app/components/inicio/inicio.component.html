@@ -1,7 +1,6 @@
 <div class="eventos-container">
     <div *ngFor="let evento of eventos" class="card">
       <h3>{{ evento.nombre }}</h3>
-      <p>{{ evento.descripcion }}</p>
       <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
       <div class="buttons">
         <button (click)="editarEvento(evento)">Editar</button>

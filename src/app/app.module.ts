@@ -1,33 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // Asegúrate de que esto esté importado
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ParticipanteComponent } from './components/participante/participante.component';
 import { EventoComponent } from './components/evento/evento.component';
-import { RegistroComponent } from './components/registro/registro.component'
+import { InicioComponent } from './components/inicio/inicio.component';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ParticipanteComponent,
     EventoComponent,
-    RegistroComponent,
-    // otros componentes...
+    InicioComponent // Asegúrate de que también esté declarado aquí
   ],
   imports: [
     BrowserModule,
-    FormsModule, // Asegúrate de añadir FormsModule aquí
-    RouterModule.forRoot([
-      { path: 'participantes', component: ParticipanteComponent },
-      { path: 'eventos', component: EventoComponent },
-      { path: 'eventos', component: RegistroComponent },
-      { path: '', redirectTo: '/participantes', pathMatch: 'full' },
-      { path: '**', redirectTo: '/participantes' },
-    ]),
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
